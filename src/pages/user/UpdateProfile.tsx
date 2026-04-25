@@ -47,10 +47,9 @@ const UpdateProfile = () => {
   }));
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("here is the form data:::", data);
     const formData = new FormData();
     formData.append("data", JSON.stringify(data));
-    formData.append("file", data.thumbnail);
+    formData.append("file", data.profilePic);
     //this is just for development testing purpose
     // console.log(Object.fromEntries(formData));
 
