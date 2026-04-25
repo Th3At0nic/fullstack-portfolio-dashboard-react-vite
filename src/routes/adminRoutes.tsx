@@ -5,6 +5,7 @@ import AddExperience from "../pages/experience/AddExperience";
 import AddProject from "../pages/project/AddProject";
 import AddResume from "../pages/resume/AddResume";
 import AddSkill from "../pages/skill/AddSkill";
+import UpdateProfile from "../pages/user/UpdateProfile";
 
 export const adminPaths = [
   {
@@ -41,5 +42,10 @@ export const adminPaths = [
     name: "Add Certificate",
     path: "add-certificate",
     element: <AddCourseCertificate />,
+  },
+  {
+    name: "Update Profile",
+    path: "update-profile",
+    element: <UpdateProfile />,
   },
 ];

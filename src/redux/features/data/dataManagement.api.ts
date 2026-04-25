@@ -44,6 +44,13 @@ const dataManagementApi = baseApi.injectEndpoints({
         body: data,
       }),
     }),
+    updateProfile: builder.mutation({
+      query: (data) => ({
+        url: "/user/update-profile",
+        method: "PATCH",
+        body: data,
+      }),
+    }),
   }),
 });
 
@@ -54,4 +61,5 @@ export const {
   useAddProjectMutation,
   useAddResumeMutation,
   useAddSkillMutation,
+  useUpdateProfileMutation,
 } = dataManagementApi;
