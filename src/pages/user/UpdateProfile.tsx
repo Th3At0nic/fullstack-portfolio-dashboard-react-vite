@@ -7,6 +7,7 @@ import PHInput from "../../components/form/PHInput";
 import PHSelect from "../../components/form/PHSelect";
 import PHImageInput from "../../components/form/PHImageInput";
 import PHTextArea from "../../components/form/PHTextarea";
+import { useUpdateProfileMutation } from "../../redux/features/data/dataManagement.api";
 
 // const bioItems = [
 //   "Full Stack Web Developer",
@@ -38,7 +39,7 @@ const bioItems = [
 ];
 
 const UpdateProfile = () => {
-  //   const [createBlog] = useCreateBlogMutation();
+  const [updateProfile] = useUpdateProfileMutation();
 
   const bioOptions = bioItems?.map((item) => ({
     value: item,
@@ -47,19 +48,19 @@ const UpdateProfile = () => {
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log("here is the form data:::", data);
-    // const formData = new FormData();
-    // formData.append("data", JSON.stringify(data));
-    // formData.append("file", data.thumbnail);
-    // //this is just for development testing purpose
-    // // console.log(Object.fromEntries(formData));
+    const formData = new FormData();
+    formData.append("data", JSON.stringify(data));
+    formData.append("file", data.thumbnail);
+    //this is just for development testing purpose
+    // console.log(Object.fromEntries(formData));
 
-    // const res = await createBlog(formData);
+    const res = await updateProfile(formData);
 
-    // if (res?.data?.success) {
-    //   toast.success("Blog Post Successful", { duration: 4000 });
-    // } else if (res?.error) {
-    //   toast.error((res?.error as TError).data.message, { duration: 4000 });
-    // } else toast.error("Something went wrong");
+    if (res?.data?.success) {
+      toast.success("Updated Profile Successful", { duration: 4000 });
+    } else if (res?.error) {
+      toast.error((res?.error as TError).data.message, { duration: 4000 });
+    } else toast.error("Something went wrong");
   };
   return (
     <Row>
