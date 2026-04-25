@@ -8,25 +8,39 @@ import PHSelect from "../../components/form/PHSelect";
 import PHImageInput from "../../components/form/PHImageInput";
 import PHTextArea from "../../components/form/PHTextarea";
 
-const bio = [
-  "Full Stack Web Developer",
-  "MERN & Next.js Specialist",
-  "TypeScript Enthusiast",
-  "Clean Code Practitioner",
-  "REST API & Backend Architect",
-  "React, Redux & Ant Design Expert",
-  "Node.js & Express Developer",
-  "PostgreSQL, MongoDB & Prisma Engineer",
-  "Production-Ready Code Writer",
-  "Scalable System Builder",
-  "Problem Solver & Debugging Lover",
-  "Passionate About Developer Experience",
+// const bioItems = [
+//   "Full Stack Web Developer",
+//   "MERN & Next.js Specialist",
+//   "TypeScript Enthusiast",
+//   "Clean Code Practitioner",
+//   "REST API & Backend Architect",
+//   "React, Redux & Ant Design Expert",
+//   "Node.js & Express Developer",
+//   "PostgreSQL, MongoDB & Prisma Engineer",
+//   "Production-Ready Code Writer",
+//   "Scalable System Builder",
+//   "Problem Solver & Debugging Lover",
+//   "Passionate About Developer Experience",
+// ];
+
+const bioItems = [
+  "Backend Systems Engineer",
+  "Scalable API & System Design",
+  "Full Stack Application Developer",
+  "Node.js, TypeScript & Distributed Systems",
+  "MongoDB, PostgreSQL & Data Modeling",
+  "Payment Systems (Stripe, Webhooks)",
+  "Asynchronous Processing (Queues, Workers)",
+  "Modular Architecture & Clean Code",
+  "Cloud Storage & File Pipelines (AWS S3)",
+  "Performance & Reliability Focused",
+  "Real-World Problem Solving",
 ];
 
 const UpdateProfile = () => {
   //   const [createBlog] = useCreateBlogMutation();
 
-  const categoryOptions = blogCategories?.map((item) => ({
+  const bioOptions = bioItems?.map((item) => ({
     value: item,
     label: item,
   }));
@@ -61,7 +75,7 @@ const UpdateProfile = () => {
                 name="bio"
                 label="Bio / Short Introduction / Role"
                 mode="tags"
-                options={[]}
+                options={bioOptions}
               />
             </Col>
             <Col span={24} lg={5} md={12}>
