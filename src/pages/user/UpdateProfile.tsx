@@ -56,7 +56,7 @@ const UpdateProfile = () => {
     const res = await updateProfile(formData);
 
     if (res?.data?.success) {
-      toast.success("Updated Profile Successful", { duration: 4000 });
+      toast.success("Updated Profile Successful!", { duration: 4000 });
     } else if (res?.error) {
       toast.error((res?.error as TError).data.message, { duration: 4000 });
     } else toast.error("Something went wrong");
