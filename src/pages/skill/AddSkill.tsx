@@ -62,6 +62,7 @@ const AddSkill = () => {
               <PHSelect
                 name="category"
                 label="Skill Category"
+                mode="tags"
                 options={skillCategoryOptions}
               />
             </Col>
