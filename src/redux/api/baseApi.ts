@@ -47,7 +47,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
       {
         method: "POST",
         credentials: "include",
-      }
+      },
     ).then((response) => response.json());
 
     if (refreshResult?.data?.accessToken) {
@@ -57,7 +57,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
         setUser({
           user,
           token: refreshResult.data.accessToken,
-        })
+        }),
       );
 
       // calling the base query again to auto reload the page/query to capture the result after accessing the new access token and authorization, it doesn't visually reloads the page, it update the state internally without reloading the page
