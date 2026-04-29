@@ -22,7 +22,7 @@ const skillCategories = [
 ];
 
 //this helper function is for handling the change in the select input, since we are using 'tags' mode, it returns an array of values, but we want to store it as a single string in our state, so we take the last value from the array and set it as our category
-const handleChange = (value) => {
+const handleChange = (value: string[]) => {
   // 'value' is an array from Ant Design tags mode
   // We take the last element so if they type something new, it replaces the old one
   const singleStringValue = value.length > 0 ? value[value.length - 1] : "";
