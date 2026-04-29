@@ -9,14 +9,25 @@ import { useAddSkillMutation } from "../../redux/features/data/dataManagement.ap
 import PHSelect from "../../components/form/PHSelect";
 
 const skillCategories = [
-  "Language",
-  "Framework",
-  "Library",
-  "Tool",
-  "Database",
-  "Platform",
-  "Other",
+  "Backend",
+  "Database & ORM",
+  "Caching & Async Processing",
+  "Payments & Integrations",
+  "Cloud & Infrastructure",
+  "File Processing",
+  "Frontend",
+  "Tools & Platforms",
+  "Languages",
+  "Familiar With",
 ];
+
+//this helper function is for handling the change in the select input, since we are using 'tags' mode, it returns an array of values, but we want to store it as a single string in our state, so we take the last value from the array and set it as our category
+const handleChange = (value) => {
+  // 'value' is an array from Ant Design tags mode
+  // We take the last element so if they type something new, it replaces the old one
+  const singleStringValue = value.length > 0 ? value[value.length - 1] : "";
+  return singleStringValue;
+};
 
 const AddSkill = () => {
   const [addSkill] = useAddSkillMutation();
@@ -27,8 +38,15 @@ const AddSkill = () => {
   }));
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
+    const categoryValue = handleChange(data.category);
+
+    const dataWithCategory = {
+      ...data,
+      category: categoryValue,
+    };
+
     const formData = new FormData();
-    formData.append("data", JSON.stringify(data));
+    formData.append("data", JSON.stringify(dataWithCategory));
     formData.append("file", data.iconUrl);
     //this is just for development testing purpose
     // console.log(Object.fromEntries(formData));
